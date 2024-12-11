@@ -1,10 +1,12 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <?php
-    session_start();
-    ?>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
@@ -16,7 +18,6 @@
     <link rel="stylesheet" href="../src/css/styles.css">
     <title>Front</title>
 </head>
-
 
 <body>
     <nav id="sidebar">
@@ -90,7 +91,7 @@
     <main>
         <h1>Clientes</h1>
         <!-- <button id="open_dialog" class='btn btn-outline-primary'>Cadastrar</button> -->
-        <button type="button" class="btn" id="open_dialog" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        <button type="button" class="btn btn-azul" id="open_dialog" data-bs-toggle="modal" data-bs-target="#exampleModal"
             data-bs-whatever="@mdo">Novo</button>
 
         <!-- dialog -->
@@ -118,8 +119,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn" data-bs-dismiss="modal">Voltar</button>
-                        <button type="submit" class="btn">Cadastrar</button>
+                        <button type="button" class="btn btn-azul" data-bs-dismiss="modal">Voltar</button>
+                        <button type="submit" class="btn btn-azul">Cadastrar</button>
                     </div>
                     </form>
                 </div>
@@ -128,26 +129,27 @@
         <?php
         include('Mensagem.php');
         ?>
-
-<form method="GET" class="d-flex">
-    <input 
-        type="text" 
-        class="form-control mb-2 busca" 
-        placeholder="Nome cliente" 
-        id="recipient-name" 
-        name="busca" 
-        value="<?php echo htmlspecialchars(isset($_GET['busca']) ? $_GET['busca'] : ''); ?>"
-    >
-    <button type="submit" class="btn btn-primary">Buscar</button>
-</form>
+        <form method="GET" class="d-flex">
+            <input 
+                type="text" 
+                class="form-control mb-2 busca" 
+                placeholder="Nome cliente" 
+                id="recipient-name" 
+                name="busca" 
+                value="<?php echo htmlspecialchars(isset($_GET['busca']) ? $_GET['busca'] : ''); ?>"
+            >
+            <button type="submit" class="btn btn-azul btn-azul">Buscar</button>
+        </form>
         
-        <table class="table rounded">
+        <table class="table align-middle">
            <thead>
                <tr>
                <th scope="col">#</th>
                <th scope="col">Nome</th>
                <th scope="col">CPF</th>
                <th scope="col">Endereco</th>
+               <th scope="col">Acoes</th>
+               
                </tr>
            </thead>
            <tbody>
@@ -172,6 +174,7 @@
                 echo  "<td>" . htmlspecialchars($dados['nome']) . "</td>";
                 echo  "<td>" . htmlspecialchars($dados['cpf']) . "</td>";
                 echo  "<td>" . htmlspecialchars($dados['endereco']) . "</td>";
+                echo "<td><button class='btn btn-success btn-sm'>Editar</button> <button class='btn btn-danger btn-sm'>Excluir</button> </td>";
                 echo  "</tr>";
             }
             ?>

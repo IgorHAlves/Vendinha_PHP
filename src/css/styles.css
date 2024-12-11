@@ -24,19 +24,6 @@ ul {
     padding-left: 0rem;
 }
 
-button {
-    background-color: #2D3366 !important;
-    color: #e3e9f7 !important;
-    margin-bottom: 20px;
-}
-
-
-button:hover {
-    background-color: #4b528d !important;
-    color: #e3e9f7 !important;
-}
-
-
 .table {
     --bs-table-bg: #e3e9f7;
     border-style: solid;
@@ -248,4 +235,15 @@ button:hover {
     outline: none;
     border: 3px solid #2D3366;
     box-shadow: 0 0 5px #2D3366;
+}
+
+.btn-azul {
+    background-color: #2D3366 !important;
+    color: #e3e9f7 !important;
+    margin-bottom: 20px;
+}
+
+.btn-azul:hover {
+    background-color: #4b528d !important;
+    color: #e3e9f7 !important;
 }
